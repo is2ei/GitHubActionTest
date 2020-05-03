@@ -8,4 +8,4 @@ jobs:
     steps:
       - uses: Port2/todoist-task@v0.3
         with:
-          tokn: ${{ secrets.TODOIST_TOKEN }}
+          token: ${{ secrets.TODOIST_TOKEN }}
