@@ -1,0 +1,11 @@
+on:
+  issues:
+    types: [opened]
+jobs:
+  todoist:
+    name: Todoist Notification
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Port2/todoist-task@v0.3
+        with:
+          tokn: ${{ secrets.TODOIST_TOKEN }}
