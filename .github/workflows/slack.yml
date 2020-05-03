@@ -1,4 +1,4 @@
-on: issues
+on: [issues, gollum]
 jobs:
   slack:
     name: Slack Notification
