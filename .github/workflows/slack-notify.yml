@@ -1,0 +1,9 @@
+on: [issues, gollum]
+jobs:
+  slack:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    steps:
+      - uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
