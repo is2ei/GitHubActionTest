@@ -16,4 +16,4 @@ jobs:
         uses: rtCamp/action-slack-notify@v2.0.0
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_MESSAGE: ${{ github.event.pages.0.html_url}}
+          SLACK_MESSAGE: ${{ github.event.gollum.pages.0.html_url}}
