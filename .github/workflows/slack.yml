@@ -4,7 +4,15 @@ jobs:
     name: Slack Notification
     runs-on: ubuntu-latest
     steps:
-      - uses: rtCamp/action-slack-notify@v2.0.0
+      - name: Issue
+        if: ${{ github.event_name === 'issues' }}
+        uses: rtCamp/action-slack-notify@v2.0.0
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_MESSAGE: ${{ github.event.issue.title }}${{ github.gollum.pages[0].page_name }}
+          SLACK_MESSAGE: <${{ github.event.issue.html_url }}|${{ github.event.issue.title }}>
+      - name: Wiki
+        if: ${{ github.event_name === 'gollum' }}
+        uses: rtCamp/action-slack-notify@v2.0.0
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_MESSAGE: <${{ github.gollum.pages[0].html_url }}|Wiki updated>
