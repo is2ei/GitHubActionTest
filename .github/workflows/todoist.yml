@@ -9,4 +9,4 @@ jobs:
       - uses: Port2/todoist-task@v0.3
         with:
           token: ${{ secrets.TODOIST_TOKEN }}
-          task: ${{ github.event.issue.title }}
+          task: \[${{ github.event.issue.title }}\]\(${{ github.event.issue.html_url }}\)
