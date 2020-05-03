@@ -5,13 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Issue
-        if: ${{ github.event_name === 'issues' }}
+        if: ${{ github.event_name == 'issues' }}
         uses: rtCamp/action-slack-notify@v2.0.0
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_MESSAGE: <${{ github.event.issue.html_url }}|${{ github.event.issue.title }}>
       - name: Wiki
-        if: ${{ github.event_name === 'gollum' }}
+        if: ${{ github.event_name == 'gollum' }}
         uses: rtCamp/action-slack-notify@v2.0.0
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
